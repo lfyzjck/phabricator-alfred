@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>Phabricator</string>
+	<key>category</key>
+	<string>Productivity</string>
+	<key>connections</key>
+	<dict>
+		<key>21859448-59AC-413F-B5F1-3001C973E7F6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>34A46402-BECC-4761-BCFB-6767033CF1B6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>34A46402-BECC-4761-BCFB-6767033CF1B6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>F3FFAEFF-B405-4CED-8FFB-26B560F3FF53</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>34A46402-BECC-4761-BCFB-6767033CF1B6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>lfyzjck</string>
+	<key>description</key>
+	<string>Phabricator task&amp;diff management</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>Phabricator</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>34A46402-BECC-4761-BCFB-6767033CF1B6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>ph task</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching for Phabricator</string>
+				<key>script</key>
+				<string>#!/usr/bin/python
+# encoding=utf-8
+
+import sys
+
+from workflow import Workflow
+import phapi
+
+
+if __name__ == '__main__':
+    wf = Workflow()
+    sys.exit(wf.run(phapi.query_tasks))
+</string>
+				<key>subtext</key>
+				<string>Maniphest Task</string>
+				<key>title</key>
+				<string>Maniphest Task</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>ph diff</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>runningsubtext</key>
+				<string>Searching Diffrentials ...</string>
+				<key>script</key>
+				<string>#!/usr/bin/python
+# encoding=utf-8
+
+import sys
+
+from workflow import Workflow
+import phapi
+
+
+if __name__ == '__main__':
+    wf = Workflow()
+    sys.exit(wf.run(phapi.query_diffs))
+</string>
+				<key>subtext</key>
+				<string>Diffrential</string>
+				<key>title</key>
+				<string>Diffrential</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>F3FFAEFF-B405-4CED-8FFB-26B560F3FF53</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>escaping</key>
+				<integer>0</integer>
+				<key>keyword</key>
+				<string>ph new</string>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
+				<key>script</key>
+				<string>#!/usr/bin/python
+# encoding=utf-8
+
+import sys
+
+from workflow import Workflow
+import phapi
+
+
+if __name__ == '__main__':
+    wf = Workflow()
+    sys.exit(wf.run(phapi.new_task))
+</string>
+				<key>title</key>
+				<string>New Maniphest Task</string>
+				<key>type</key>
+				<integer>3</integer>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>21859448-59AC-413F-B5F1-3001C973E7F6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string></string>
+	<key>uidata</key>
+	<dict>
+		<key>21859448-59AC-413F-B5F1-3001C973E7F6</key>
+		<dict>
+			<key>ypos</key>
+			<real>310</real>
+		</dict>
+		<key>34A46402-BECC-4761-BCFB-6767033CF1B6</key>
+		<dict>
+			<key>ypos</key>
+			<real>50</real>
+		</dict>
+		<key>7DD3BDE5-A157-42E5-9376-F681FB50A4EE</key>
+		<dict>
+			<key>ypos</key>
+			<real>50</real>
+		</dict>
+		<key>F3FFAEFF-B405-4CED-8FFB-26B560F3FF53</key>
+		<dict>
+			<key>ypos</key>
+			<real>190</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string>http://www.lfyzjck.com</string>
+</dict>
+</plist>
